@@ -7,7 +7,7 @@ color="white"
 height="90px"
 >
 
-<v-img src="/logo.svg" contain height="60px">
+<v-img src="https://raw.githubusercontent.com/lnsflive/AlphaConstructionWebsite/gh-pages/logo.svg" contain height="60px">
 </v-img>
 
       <v-btn
@@ -67,7 +67,7 @@ color="#dedede">
     style="margin-top:100px;"
   >
   <div class="" style="width:100%;display:block;text-align:center;position:absolute;bottom:0;">
-<img src="/house.svg" alt="Footer Icon" style="width:250px;margin-bottom:49px;">
+<img src="https://raw.githubusercontent.com/lnsflive/AlphaConstructionWebsite/gh-pages/house.svg" alt="Footer Icon" style="width:250px;margin-bottom:49px;">
   </div>
     <v-card
       flat
