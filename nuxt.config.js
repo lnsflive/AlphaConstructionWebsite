@@ -4,9 +4,8 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/<repository-name>/'
+    base: '/AlphaConstructionWebsite/'
   },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - alphaconstruction',
@@ -73,5 +72,6 @@ export default {
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    
   }
 }

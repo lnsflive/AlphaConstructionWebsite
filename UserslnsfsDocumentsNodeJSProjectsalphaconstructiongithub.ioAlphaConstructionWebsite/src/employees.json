@@ -1,16 +1,16 @@
 [
     {
-        "image":"sergio.jpg",
+        "image":"/img/sergio.jpg",
         "title":"Project Manager",
         "name":"Sergio Gonzalez"
     },
     {
-        "image":"gabby.jpg",
+        "image":"/img/gabby.jpg",
         "title":"Real Estate Agent",
         "name":"Gabby Cano"
     },
     {
-        "image":"natalie.jpg",
+        "image":"/img/natalie.jpg",
         "title":"Real Estate Agent",
         "name":"Natalie Gonzalez"
     }

@@ -6,8 +6,10 @@
 <v-img 
   height="900px"
   gradient="to left, rgba(51,95,140,0.8), rgba(34,117,173,0.8)"
-  src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.6435-9/244366000_5074412845919272_4074808328604315808_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=973b4a&_nc_ohc=0J8Gy3mvHDIAX9vDucm&_nc_ht=scontent-dfw5-1.xx&oh=c83dc7ed992bd0f5a24bc691faaa8d83&oe=6194E97B" 
+  :src="banner.image"
   class="banner_img"
+  v-for="(banner,i) in banners"
+  :key='i'
 >
 <v-container fluid class="d-flex flexbox justify-center" >
 <v-card
@@ -16,10 +18,10 @@ max-width="800px"
 class="banner_card"
 flat
   color= "transparent">
-  <v-card-subtitle class="banner_update"><h3>LATEST UPDATE</h3></v-card-subtitle>
-  <v-card-title class="banner_title" ><h2>BRAND NEW CONSTRUCTION IN VENDOME</h2></v-card-title>
+  <v-card-subtitle class="banner_update"><h3>{{banner.subtitle}}</h3></v-card-subtitle>
+  <v-card-title class="banner_title" ><h2>{{banner.title}}</h2></v-card-title>
   <v-card-actions>
-  <a href="https://www.facebook.com/constructionbyalpha/" target="_blank"><v-btn outlined  class="ml-2 banner_btn">Read More</v-btn></a>
+  <a :href="banner.link" target="_blank"><v-btn outlined  class="ml-2 banner_btn">Read More</v-btn></a>
   </v-card-actions>
 </v-card>
 </v-container>
@@ -52,8 +54,16 @@ flat
   </v-card>
 </v-container>
 
-<v-container fluid class="pa-0 ma-0" style="transform:scaleX(-1);">
-  <v-img src="/separators.svg"></v-img>
+<v-container fluid class="pa-0 ma-0" style="transform:scaleX(-1);position:relative;">
+
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1919.76 724.34"><defs><style>
+     .cls-11{fill:#dedede;}.cls-21{fill:#01afff;}.cls-31{fill:#003c79;}
+     </style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1">
+       <path class="cls-11" d="M0,724.34V545.51s200-226.1,603-226.1c337,0,405,52,811,66C1807.76,399,1919.76,80,1919.76,80V252.8S1840.68,470.88,1624,534.41c-324,95-729.62-68.34-1116.41-30C155,539.41,0,724.34,0,724.34Z"/>
+       <path class="cls-21" d="M0,684.34V505.51s200-226.1,603-226.1c337,0,405,52,811,66C1807.76,359,1919.76,40,1919.76,40V212.8S1840.68,430.88,1624,494.41c-324,95-729.62-68.34-1116.41-30C155,499.41,0,684.34,0,684.34Z"/>
+       <path class="cls-31" d="M0,644.34V465.51s200-226.1,603-226.1c337,0,405,52,811,66C1807.76,319,1919.76,0,1919.76,0V172.8S1840.68,390.88,1624,454.41c-324,95-729.62-68.34-1116.41-30C155,459.41,0,644.34,0,644.34Z"/>
+   </g></g></svg>
+
 </v-container>
 
 <v-container  id="work" class="pa-16" style="position:relative;">
@@ -105,8 +115,8 @@ flat
   <v-row>
     <v-col class="pa-16">
       <v-card class="pa-8" flat style="background-color:#06afff;">
-        <v-img contain width="600" height="310" class="float-right pa-3"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.083512181256!2d-98.16599768496809!3d26.291392583399123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a224e1be081d%3A0x1b1e200551dbde08!2s1108%20S%20Closner%20Blvd%2C%20Edinburg%2C%20TX%2078539!5e0!3m2!1sen!2sus!4v1634616077565!5m2!1sen!2sus"  width="100%" height="100%" style="float:right;border:0;" allowfullscreen="" loading="lazy"></iframe></v-img>
-        <v-card-text style="text-align:right;float:right;" >
+        <v-img contain width="600" height="310" class="float-right mb-2"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.083512181256!2d-98.16599768496809!3d26.291392583399123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a224e1be081d%3A0x1b1e200551dbde08!2s1108%20S%20Closner%20Blvd%2C%20Edinburg%2C%20TX%2078539!5e0!3m2!1sen!2sus!4v1634616077565!5m2!1sen!2sus"  width="100%" height="100%" style="float:right;border:0;" allowfullscreen="" loading="lazy"></iframe></v-img>
+        <v-card-text style="text-align:right;float:right;" class="pa-0 ma-0">
          <span class="contact_info"> 1108 South Closner Boulevard<br>
           Edinburg, TX, United States<br>
           +1 (956) 467-7702 <br>
@@ -185,14 +195,16 @@ flat
 </v-container>
 </template>
 <script>
-import employees from "../static/employees.json";
-import addresses from "../static/addresses.json";
+import employees from "../static/src/employees.json";
+import addresses from "../static/src/addresses.json";
+import banner from "../static/src/banner.json";
   export default {
 
     data:()=>({
         snackbar: false,
         text: 'My timeout is set to 2000.',
         timeout: 2000,
+        banners:banner,
         addresses:addresses,
         employees:employees,
         valid: false,

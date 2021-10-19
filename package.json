@@ -6,15 +6,17 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/vuetify": "^1.12.1",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
-    "vuetify": "^2.5.5",
-    "@nuxtjs/vuetify": "^1.12.1"
+    "vuetify": "^2.5.5"
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
