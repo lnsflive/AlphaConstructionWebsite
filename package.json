@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build --output public",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate --output public",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
