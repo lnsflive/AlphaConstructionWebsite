@@ -6,10 +6,8 @@
 <v-img 
   height="900px"
   gradient="to left, rgba(51,95,140,0.8), rgba(34,117,173,0.8)"
-  :src="banner.image"
+  :src='banner.image'
   class="banner_img"
-  v-for="(banner,i) in banners"
-  :key='i'
 >
 <v-container fluid class="d-flex flexbox justify-center" >
 <v-card
@@ -44,7 +42,7 @@ flat
  
       <v-card  flat  class="d-flex align-self-center flex-wrap justify-space-around" color="white">
 
-            <v-card class="ma-2"  color="#ededed" width="384px" v-for="(employee, i) in employees" :key='i'>
+            <v-card class="ma-2"  color="#ededed" width="384px" v-for="employee in employees" :key='employee.id'>
               <v-img height="250px"  :src="employee.image"></v-img>
               <v-card-subtitle style="color:#06afff">{{employee.title}}</v-card-subtitle>
               <v-card-title style="color:#00285f">{{employee.name}}</v-card-title>
@@ -79,16 +77,16 @@ flat
 
   <v-card flat class="d-flex flex-wrap justify-space-around" color=rgba(0,0,0,0)>
 
-      <v-card min-width="280px" max-width="384px" color="#ededed" class="pa-2 ma-4" v-for="(address, i) in addresses" :key='i' >
-        <a target="_blank" :href=address.link><v-img height="250px" :src="address.image"></v-img></a>
-      <v-card-title style="color:#00285f;" class="pa-0 mt-4">{{ address.address}}</v-card-title>
-      <v-card-subtitle style="color:#00285f;" class="pa-0 mt-0 mb-2">{{ address.city}}, {{address.state}} {{address.zip}}</v-card-subtitle>
-      <v-card-text style="color:#00285f;">{{address.info.substring(0,170) + '...'}}</v-card-text>
+      <v-card min-width="280px" max-width="384px" color="#ededed" class="pa-2 ma-4" v-for="property in properties" :key='property.id' >
+        <a target="_blank" :href=property.link><v-img height="250px" :src="property.image"></v-img></a>
+      <v-card-title style="color:#00285f;" class="pa-0 mt-4">{{ property.address}}</v-card-title>
+      <v-card-subtitle style="color:#00285f;" class="pa-0 mt-0 mb-2">{{ property.city}}, {{property.state}} {{property.zip}}</v-card-subtitle>
+      <v-card-text style="color:#00285f;" class="pa-0">{{property.info.substring(0,170) + '...'}}</v-card-text>
       <v-row class="pt-2">
         <v-col>
-          <v-chip color="blue">{{address.beds}} beds</v-chip>
-          <v-chip color="blue">{{address.baths}} baths</v-chip>
-          <v-chip color="blue">{{address.footage}} sq ft.</v-chip>
+          <v-chip color="blue">{{property.beds}} beds</v-chip>
+          <v-chip color="blue">{{property.baths}} baths</v-chip>
+          <v-chip color="blue">{{property.footage}} sq ft.</v-chip>
         </v-col>
       </v-row>
       </v-card>
@@ -195,18 +193,16 @@ flat
 </v-container>
 </template>
 <script>
-import employees from "../static/src/employees.json";
-import addresses from "../static/src/addresses.json";
-import banner from "../static/src/banner.json";
+import gql from 'graphql-tag'
   export default {
 
     data:()=>({
         snackbar: false,
         text: 'My timeout is set to 2000.',
         timeout: 2000,
-        banners:banner,
-        addresses:addresses,
-        employees:employees,
+        banner:[],
+        properties:[],
+        employees:[],
         valid: false,
         name: '',
         nameRules: [
@@ -225,6 +221,51 @@ import banner from "../static/src/banner.json";
         ],
         message: '',
     }),
+    apollo:{
+      properties:{
+        query: gql`
+        query{
+          properties{
+          id,
+          address,
+          city,
+          state,
+          zip,
+          info,
+          beds,
+          baths,
+          footage,
+          image,
+          link
+          }
+        }`
+      },
+      banner:{
+        query: gql`
+          query{
+            banner{
+            id,
+            image,
+            subtitle,
+            title,
+            link
+            }
+          }
+        `
+      },
+      employees:{
+        query: gql`
+          query{
+          employees{
+          id,
+          name,
+          title,
+          image
+          }
+          }
+        `
+      }
+    },
     methods:{
       submit () {
       if (this.$refs.form.validate()){

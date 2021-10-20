@@ -29,7 +29,11 @@ export default {
     '~/assets/qse4mmy.css',
     '~/assets/animate.min.css'
   ], 
-
+  serverMiddleware:[
+    {
+      path: '/api', handler: '~/api/index.js'
+    }
+  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
@@ -46,9 +50,16 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    // '@nuxtjs/axios',
+    '@nuxtjs/apollo',
   ],
-
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://alphaconstruction.herokuapp.com/graphql',
+      }
+    }
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
