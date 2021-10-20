@@ -77,6 +77,6 @@ export default {
     
   },
   generate: {
-    dir: 'W:/AlphaConstructionWebsite'
+    dir: 'public'
   }
 }
