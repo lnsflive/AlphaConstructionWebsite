@@ -1,16 +1,16 @@
 [
     {
-        "image":"/img/sergio.jpg",
+        "image":"/AlphaConstructionWebsite/img/sergio.jpg",
         "title":"Project Manager",
         "name":"Sergio Gonzalez"
     },
     {
-        "image":"/img/gabby.jpg",
+        "image":"/AlphaConstructionWebsite/img/gabby.jpg",
         "title":"Real Estate Agent",
         "name":"Gabby Cano"
     },
     {
-        "image":"/img/natalie.jpg",
+        "image":"/AlphaConstructionWebsite/img/natalie.jpg",
         "title":"Real Estate Agent",
         "name":"Natalie Gonzalez"
     }

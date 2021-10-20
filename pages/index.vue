@@ -14,7 +14,7 @@
 <v-container fluid class="d-flex flexbox justify-center" >
 <v-card
 min-width="380px"
-max-width="800px"
+max-width="790px"
 class="banner_card"
 flat
   color= "transparent">
@@ -254,9 +254,6 @@ import banner from "../static/src/banner.json";
 </script>
 
 <style>
-@import 'https://use.typekit.net/qse4mmy.css';
-@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
-
 
 .spacer_parent{
   position:absolute;

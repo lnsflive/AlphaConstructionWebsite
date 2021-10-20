@@ -7,7 +7,8 @@ color="white"
 height="90px"
 >
 
-<v-img src="~/assets/logo.svg" contain height="60px">
+<v-img contain src="/AlphaConstructionWebsite/img/logo.svg" height="60px">
+  
 </v-img>
 
       <v-btn
@@ -67,7 +68,7 @@ color="#dedede">
     style="margin-top:100px;"
   >
   <div class="" style="width:100%;display:block;text-align:center;position:absolute;bottom:0;">
-<img src="~/assets/house.svg" alt="Footer Icon" style="width:250px;margin-bottom:49px;">
+<img src="/AlphaConstructionWebsite/img/house.svg" alt="Footer Icon" style="width:250px;margin-bottom:49px;">
   </div>
     <v-card
       flat
