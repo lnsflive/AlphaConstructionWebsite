@@ -195,9 +195,9 @@ flat
 </v-container>
 </template>
 <script>
-import employees from "../static/src/employees.json";
-import addresses from "../static/src/addresses.json";
-import banner from "../static/src/banner.json";
+import employees from "/src/employees.json";
+import addresses from "/src/addresses.json";
+import banner from "/src/banner.json";
   export default {
 
     data:()=>({
