@@ -302,9 +302,6 @@ import gql from 'graphql-tag'
 </script>
 
 <style>
-  html{
-    min-width:600px;
-  }
 .spacer_parent{
   position:absolute;
   bottom:0;
@@ -329,9 +326,15 @@ svg{
   font-family: iskra,sans-serif;
   /* font-family: semplicitapro,sans-serif; */
   }
+  .v-card__text, .v-card__title {
+  word-break: normal; /* maybe !important  */
+}
 h1{
   font-family: semplicitapro,sans-serif;
   font-size:4rem;
+  word-break:normal;
+  line-height: 4rem;
+  text-align: center;
 }
 h2{
   font-family: semplicitapro,sans-serif;
@@ -353,7 +356,7 @@ h3{
   font-family: semplicitapro,sans-serif;
   line-height: 3rem;
   font-size:2.75rem;
-  word-break: normal;
+  word-break:normal;
 }
 .banner_btn{
   font-family: semplicitapro,sans-serif!important;
@@ -376,7 +379,6 @@ h3{
   font-size:1.3rem;
   color:white!important;
 }
-
 
 .before-enter{opacity: 0;transform: translateX(100px);transition: all 5s ease-out;}
 .enter{opacity: 1;transform:translateX(0px);}
