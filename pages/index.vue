@@ -1,5 +1,5 @@
 <template>
-<v-container fluid class="pa-0 ma-0" style="background-color:white;">
+<v-container fluid class="pa-0 ma-0" style="background-color:white;width:100vw;  box-sizing:border-box;">
   
 <v-container fluid class="pa-0 ma-0" style="background-color:white;position:relative;" id="home">
 
@@ -301,7 +301,7 @@ import gql from 'graphql-tag'
   }
 </script>
 
-<style>
+<style scoped>
 .spacer_parent{
   position:absolute;
   bottom:0;
@@ -355,8 +355,7 @@ h3{
 .banner_title{
   font-family: semplicitapro,sans-serif;
   line-height: 3rem;
-  font-size:2.75rem;
-  word-break:normal;
+  word-break:break-word;
 }
 .banner_btn{
   font-family: semplicitapro,sans-serif!important;

@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color:white;"  >
+<v-app style="background-color:white;" >
  
 <v-app-bar
 fixed
@@ -57,9 +57,10 @@ height="100%"
 </v-app-bar>
 
 
-    <v-main class="pb-16">
-        <Nuxt />
+    <v-main class="pb-12"  >
+        <Nuxt style="overflow:hidden;" />
     </v-main>
+
 
 <v-footer
     padless
@@ -158,7 +159,10 @@ export default {
 }
 </script>
 
+
+
 <style scoped>
+
 h3{
   font-size: 1.1rem;
 }
