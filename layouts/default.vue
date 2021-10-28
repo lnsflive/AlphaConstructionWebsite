@@ -4,58 +4,58 @@
 <v-app-bar
 fixed
 color="white"
-height="90px"
+height="100%"
 >
 
 <v-img contain src="/img/logo.svg" height="60px">
   
 </v-img>
  
-      <v-btn
-  color="#003c79"
-  text
-  class="underline"
-  to="#home"
-><h3>HOME</h3></v-btn>
 <v-btn
   color="#003c79"
   text
-  class="underline"
-  to="#about"
-><h3>ABOUT US</h3></v-btn>
-<v-btn
-  color="#003c79"
-  text
-  class="underline"
-  to="#work"
-><h3>OUR WORK</h3></v-btn>
-<v-btn
-  color="#003c79"
-  text
-  class="underline"
-    to="#contact"
-><h3>CONTACT US</h3></v-btn>
+  class="underline d-none d-md-flex"
+  v-for="(link,i) in links"
+  :key="i"
+  :to=link.link
+><h3>{{link.title}}</h3></v-btn>
+
 
       <v-spacer></v-spacer>
 
-      <v-btn icon color="#003c79">
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+       <v-app-bar-nav-icon class="d-sm-flex d-md-none" @click.stop="drawer = !drawer" style="color:black;"></v-app-bar-nav-icon>
+    
+
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      right
+      width="50vw"
+      height="100vh"
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+        v-model="group"
+        >
+          <v-list-item 
+          link
+            v-for="(link,i) in links"
+            :key="i"
+            :to=link.link
+          >
+            <v-list-item-title class="text-center">{{link.title}}</v-list-item-title>
+          </v-list-item>
+
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
 
 </v-app-bar>
-<v-toolbar
-dense
-fixed
-flat
-color="#dedede">
-<v-spacer></v-spacer>
-<h5 style="color:#003c79;">RESIDENTIAL</h5>
-<v-spacer></v-spacer>
-<h5 style="color:#003c79;">COMMERCIAL</h5>
-<v-spacer></v-spacer>
-<h5 style="color:#003c79;">DEVELOPER</h5>
-<v-spacer></v-spacer>
-</v-toolbar>
+
 
     <v-main class="pb-16">
         <Nuxt />
@@ -109,13 +109,21 @@ color="#dedede">
 
 <script>
 export default {
+
+
   data () {
 
     return {
-      
       clipped: false,
       drawer: false,
+      group:null,
       fixed: true,
+      links:[
+        {title:"Home",link:"#home"},
+        {title:"About Us",link:"#about"},
+        {title:"Our Work",link:"#work"},
+        {title:"Contact Us",link:"#contact"}
+      ],
       icons: [
         
         {type:'mdi-facebook',url:"https://www.facebook.com/constructionbyalpha/"},
@@ -141,6 +149,11 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
+  },
+  watch:{
+    group(){
+      this.drawer = false;
+    },
   }
 }
 </script>

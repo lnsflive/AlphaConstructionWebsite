@@ -11,6 +11,7 @@
 >
 <v-container fluid class="d-flex flexbox justify-center" >
 <v-card
+data-aos="fade-right"
 min-width="380px"
 max-width="790px"
 class="banner_card"
@@ -37,12 +38,12 @@ flat
   color=rgba(0,0,0,0)
   flat
   >
-    <v-card-title class="pa-16" style="color:#003c79;justify-content:center;"><h1>ABOUT US</h1></v-card-title>
-    <v-card-subtitle class="pa-16" style="color:#003c79;text-align:center;"><h3>Family owned and operated.  Our family has been in the construction business for over 13 years, so we really mean it when we say we're here to help you. </h3></v-card-subtitle>
+    <v-card-title data-aos="zoom-in-up" class="pa-16" style="color:#003c79;justify-content:center;"><h1>ABOUT US</h1></v-card-title>
+    <v-card-subtitle data-aos="zoom-in-up" class="pa-16" style="color:#003c79;text-align:center;"><h3>Family owned and operated.  Our family has been in the construction business for over 13 years, so we really mean it when we say we're here to help you. </h3></v-card-subtitle>
  
       <v-card  flat  class="d-flex align-self-center flex-wrap justify-space-around" color="white">
 
-            <v-card class="ma-2"  color="#ededed" width="384px" v-for="employee in employees" :key='employee.id'>
+            <v-card data-aos="zoom-in" class="ma-2"  color="#ededed" width="384px" v-for="employee in employees" :key='employee.id'>
               <v-img height="250px"  :src="employee.image"></v-img>
               <v-card-subtitle style="color:#06afff">{{employee.title}}</v-card-subtitle>
               <v-card-title style="color:#00285f">{{employee.name}}</v-card-title>
@@ -70,14 +71,14 @@ flat
       <v-card
       flat
       color="white">
-        <v-card-title style="justify-content:center;color:#00285f;"><h1>OUR WORK</h1></v-card-title>
+        <v-card-title data-aos="fade-up" style="justify-content:center;color:#00285f;"><h1>OUR WORK</h1></v-card-title>
       </v-card>
     </v-col>
   </v-row>
 
   <v-card flat class="d-flex flex-wrap justify-space-around" color=rgba(0,0,0,0)>
 
-      <v-card min-width="280px" max-width="384px" color="#ededed" class="pa-2 ma-4" v-for="property in properties" :key='property.id' >
+      <v-card data-aos="zoom-in" min-width="280px" max-width="384px" color="#ededed" class="pa-2 ma-4" v-for="property in properties" :key='property.id' >
         <a target="_blank" :href=property.link><v-img height="250px" :src="property.image"></v-img></a>
       <v-card-title style="color:#00285f;" class="pa-0 mt-4">{{ property.address}}</v-card-title>
       <v-card-subtitle style="color:#00285f;" class="pa-0 mt-0 mb-2">{{ property.city}}, {{property.state}} {{property.zip}}</v-card-subtitle>
@@ -109,10 +110,10 @@ flat
 
 <v-container fluid id="contact" class="pa-0 ma-0" style="background-color:#06afff;">
   <v-row class="pt-14"></v-row>
-  <v-row class="pa-8" style="justify-content:center;"> <h1 style="z-index:1;">CONTACT US</h1></v-row>
+  <v-row data-aos="fade-up" class="pa-8" style="justify-content:center;"> <h1 style="z-index:1;">CONTACT US</h1></v-row>
   <v-row>
     <v-col class="pa-16">
-      <v-card class="pa-8" flat style="background-color:#06afff;">
+      <v-card data-aos="zoom-out" class="pa-8" flat style="background-color:#06afff;">
         <v-img contain width="600" height="310" class="float-right mb-2"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.083512181256!2d-98.16599768496809!3d26.291392583399123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a224e1be081d%3A0x1b1e200551dbde08!2s1108%20S%20Closner%20Blvd%2C%20Edinburg%2C%20TX%2078539!5e0!3m2!1sen!2sus!4v1634616077565!5m2!1sen!2sus"  width="100%" height="100%" style="float:right;border:0;" allowfullscreen="" loading="lazy"></iframe></v-img>
         <v-card-text style="text-align:right;float:right;" class="pa-0 ma-0">
          <span class="contact_info"> 1108 South Closner Boulevard<br>
@@ -123,7 +124,7 @@ flat
       </v-card>
     </v-col >
     <v-col >
-      <v-form v-model="valid"  ref="form" class="pa-16">
+      <v-form data-aos="zoom-out" v-model="valid"  ref="form" class="pa-16">
          <v-text-field
          color="white"
             v-model="name"
@@ -193,9 +194,15 @@ flat
 </v-container>
 </template>
 <script>
-import gql from 'graphql-tag'
-  export default {
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
+import gql from 'graphql-tag'
+
+  export default {
+    mounted() {
+    AOS.init({ })
+  },
     data:()=>({
         snackbar: false,
         text: 'My timeout is set to 2000.',
@@ -295,7 +302,9 @@ import gql from 'graphql-tag'
 </script>
 
 <style>
-
+  html{
+    min-width:600px;
+  }
 .spacer_parent{
   position:absolute;
   bottom:0;
@@ -344,13 +353,13 @@ h3{
   font-family: semplicitapro,sans-serif;
   line-height: 3rem;
   font-size:2.75rem;
+  word-break: normal;
 }
 .banner_btn{
   font-family: semplicitapro,sans-serif!important;
   font-size:1.1rem;
 }
 .banner_card{
-  width: 70%;
   padding-top:120px;
 }
 .banner_img{width:100%;}
@@ -368,21 +377,7 @@ h3{
   color:white!important;
 }
 
-@media screen and (max-width: 600px) {
-  /* html{
-    min-width:600px;
-  }
-  h1{
-    font-size: 3rem;
-  }
-  .banner_title{
-    width:400px;
-  }
-  h2{
-    font-size: 2rem;
-  }
-  h3{font-size:0.8rem;} */
-}
+
 .before-enter{opacity: 0;transform: translateX(100px);transition: all 5s ease-out;}
 .enter{opacity: 1;transform:translateX(0px);}
 </style>
