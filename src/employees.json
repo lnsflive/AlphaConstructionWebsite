@@ -1,0 +1,17 @@
+[
+    {
+        "image":"~/assets/sergio.jpg",
+        "title":"Project Manager",
+        "name":"Sergio Gonzalez"
+    },
+    {
+        "image":"~/assets/gabby.jpg",
+        "title":"Real Estate Agent",
+        "name":"Gabby Cano"
+    },
+    {
+        "image":"~/assets/natalie.jpg",
+        "title":"Real Estate Agent",
+        "name":"Natalie Gonzalez"
+    }
+]
