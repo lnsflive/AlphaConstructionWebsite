@@ -17,11 +17,16 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-	  { hid: 'og:title', name: 'og:title', content: 'Alpha Construction Website' },
-	  { hid: 'og:description', name: 'og:description', content: 'Construction website created with NuxtJS, Vuetify, and Strapi.' },
-	  { hid: 'og:image', name: 'og:image', content: 'https://raw.githubusercontent.com/lnsflive/AlphaConstructionWebsite/master/public/img/ss1.png' },
-	  { hid: 'og:url', name: 'og:url', content: 'https://alphaconstructionwebsite-lnsflive.vercel.app/' },
+	  { hid: 'og:type', property: 'og:type', content: 'website' },
+	  { hid: 'og:title', property: 'og:title', content: 'Alpha Construction Website' },
+	  { hid: 'og:description', property: 'og:description', content: 'Construction website created with NuxtJS, Vuetify, and Strapi.' },
+	  { hid: 'og:image', property: 'og:image', content: 'https://raw.githubusercontent.com/lnsflive/AlphaConstructionWebsite/master/public/img/ss1.png' },
+	  { hid: 'og:url', property: 'og:url', content: 'https://alphaconstructionwebsite-lnsflive.vercel.app/' },
+	  { hid: 'twitter:title', property: 'twitter:title', content: 'Alpha Construction Website' },
+	  { hid: 'twitter:description', property: 'twitter:description', content: 'Construction website created with NuxtJS, Vuetify, and Strapi.' },
+	  { hid: 'twitter:image', property: 'twitter:image', content: 'https://raw.githubusercontent.com/lnsflive/AlphaConstructionWebsite/master/public/img/ss1.png' },
+	  { hid: 'twitter:url', property: 'twitter:url', content: 'https://alphaconstructionwebsite-lnsflive.vercel.app/' },
+	  { hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
