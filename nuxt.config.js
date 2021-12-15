@@ -20,7 +20,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
 	  { hid: 'og:title', name: 'og:title', content: 'Alpha Construction Website' },
 	  { hid: 'og:description', name: 'og:description', content: 'Construction website created with NuxtJS, Vuetify, and Strapi.' },
-	  { hid: 'og:image', name: 'og:image', content: './img/ss1.png' },
+	  { hid: 'og:image', name: 'og:image', content: 'https://raw.githubusercontent.com/lnsflive/AlphaConstructionWebsite/master/public/img/ss1.png' },
 	  { hid: 'og:url', name: 'og:url', content: 'https://alphaconstructionwebsite-lnsflive.vercel.app/' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
