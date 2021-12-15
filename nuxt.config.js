@@ -9,8 +9,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - alphaconstruction',
-    title: 'alphaconstruction',
+    titleTemplate: '%s - website',
+    title: 'Alpha Construction',
     htmlAttrs: {
       lang: 'en'
     },
@@ -18,6 +18,10 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+	  { hid: 'og:title', name: 'og:title', content: 'Alpha Construction Website' },
+	  { hid: 'og:description', name: 'og:description', content: 'Construction website created with NuxtJS, Vuetify, and Strapi.' },
+	  { hid: 'og:image', name: 'og:image', content: './img/ss1.png' },
+	  { hid: 'og:url', name: 'og:url', content: 'https://alphaconstructionwebsite-lnsflive.vercel.app/' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
